@@ -32,7 +32,7 @@ public class PrintJobQueue
     public void AddJob(string jobName)
     {
         if(string.IsNullOrEmpty(jobName) || string.IsNullOrWhiteSpace(jobName))
-        throw new ArgumentException("You can't add empty name");
+        throw new ArgumentNullException("You can't add empty name");
 
         String cleaned = jobName.Trim();
 
@@ -41,7 +41,7 @@ public class PrintJobQueue
 
     public string? ProcessNext()
     {
-        if(_jobs == null)
+        if(_jobs.Count == 0)
         return null;
 
         return _jobs.Dequeue();
