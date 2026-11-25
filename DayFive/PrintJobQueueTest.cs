@@ -38,8 +38,6 @@ public class PrintJobQueueTest
     [InlineData(null)]
     [InlineData("")]
     [InlineData(" ")]
-    
-
     public void Invalid_Job_Name(string? name)
     {
         var printJobQueue = new PrintJobQueue();
