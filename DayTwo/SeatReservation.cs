@@ -39,14 +39,17 @@ public class SeatReservation
             throw new ArgumentOutOfRangeException("The sit number is invalid");
         }
         
-        for(int i = 1; i <= _reservedSeats.Length - 1; i++)
+        for(int i = 0; i <= _reservedSeats.Length - 1 ; i++)
         {
-            if(_reservedSeats[seatNumber] == true)
+            var reservedSeat = _reservedSeats[seatNumber - 1] == true;
+
+            if(reservedSeat)
             {
                 return false;
             }
-            else if(_reservedSeats[seatNumber] == true)
+            else 
             {
+                _reservedSeats[seatNumber - 1] = true;
                 return true;
             }
             
